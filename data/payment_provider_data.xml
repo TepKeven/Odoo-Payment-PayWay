@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="payment_provider_payway" model="payment.provider">
+        <field name="name">PayWay</field>
+        <field name="image_128" type="base64" file="payment_payway/static/description/icon.png"/>
+        <field name="module_id" ref="base.module_payment_payway"/>
+        <field name="payment_method_ids"
+               eval="[(6, 0, [
+                   ref('payment.payment_method_card'),
+                   ref('payment_payway.payment_method_aba_pay'),
+                   ref('payment_payway.payment_method_bakong_khqr')
+               ])]"/>
+        <field name="code">payway</field>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+    </record>
+
+</odoo>
